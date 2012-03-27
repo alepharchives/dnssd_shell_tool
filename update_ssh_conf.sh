@@ -48,13 +48,14 @@ fi
 
 # watch if requested
 if [ $WATCH == true ]; then
+    echo "Watching for changes"
     "${DNSSD}" watch _ssh._tcp "'${0}' '${1}'"
     exit $?
 fi
-
 # generate config
 TARGET="${1}"
 TMP="${TARGET}.tmp"
+echo "Updating ${TARGET}"
 BANNER="### DO NOT EDIT BELOW - SCRIPT GENERATED CONTENT ###"
 CUT=$(grep -m 1 -n "${BANNER}" "${TARGET}" | cut -d ":" -f 1)
 if [ "${CUT}" == "" ]; then
