@@ -66,7 +66,7 @@ else
 fi
 (
     echo "# Generated $(DATE) by"
-    echo "# $(PWD)/$(basename ${0})"
+    echo "# $(cd $(dirname ${0}) && echo $(pwd)/$(basename ${0}))"
     echo " "
 ) >> "${TMP}"
 ${DNSSD} list _ssh._tcp 2 | while read -r INSTANCE; do
