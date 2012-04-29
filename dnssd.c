@@ -203,6 +203,7 @@ static void DNSSD_API reply_lookup(DNSServiceRef sd_ref,
 				   uint16_t txtLen,
 				   const unsigned char * txtRecord,
 				   void * context) {
+  if (!RUN) return;
   RUN = false;
   int itemIndex = 0;
   const void * txtBytes;
